@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakritix - Ancient Wisdom, Modern Wellness</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="prakriti.jpg">
+    <link rel="apple-touch-icon" href="prakriti.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="prakriti.jpg" alt="Prakritix logo" class="logo-image" />
+                <h2>Prakritix</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dosha-assessment.html">Dosha Test</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="diet-plan.html">Diet Plans</a></li>
+                <li><a href="doctor-login.html" class="doctor-login-btn">Doctor Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <!-- Fullscreen Ayurveda bowl image -->
+            <div class="bg-image" role="img" aria-label="Ayurveda herbal bowl"></div>
+            <!-- Subtle animated mandala -->
+            <div class="mandala-layer">
+                <div class="mandala mandala-outer"></div>
+                <div class="mandala mandala-inner"></div>
+            </div>
+            <!-- DNA strands -->
+            <svg class="dna-strands" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                    <linearGradient id="dnaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#81c784" stop-opacity="0.0"/>
+                        <stop offset="50%" stop-color="#4caf50" stop-opacity="0.6"/>
+                        <stop offset="100%" stop-color="#81c784" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path class="dna-path" d="M0,200 C200,100 400,300 600,200 C800,100 1000,300 1200,200" stroke="url(#dnaGrad)" fill="none"/>
+                <path class="dna-path delay-1" d="M0,400 C200,300 400,500 600,400 C800,300 1000,500 1200,400" stroke="url(#dnaGrad)" fill="none"/>
+                <path class="dna-path delay-2" d="M0,600 C200,500 400,700 600,600 C800,500 1000,700 1200,600" stroke="url(#dnaGrad)" fill="none"/>
+            </svg>
+            <!-- Flowing snake-like patterns -->
+            <svg class="flowing-snakes" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs>
+                    <linearGradient id="snakeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#6d4c41" stop-opacity="0.0"/>
+                        <stop offset="50%" stop-color="#388e3c" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#6d4c41" stop-opacity="0.0"/>
+                    </linearGradient>
+                </defs>
+                <path class="snake-path" d="M0,100 Q150,200 300,100 T600,100 T900,100 T1200,100" stroke="url(#snakeGrad)" fill="none"/>
+                <path class="snake-path delay-1" d="M0,720 Q200,620 400,720 T800,720 T1200,720" stroke="url(#snakeGrad)" fill="none"/>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Ancient Wisdom for Modern Wellness</h1>
+                <p class="hero-subtitle">Build a modern, responsive Ayurveda-inspired experience with smooth animations and traditional vibes.</p>
+                <div class="hero-buttons">
+                    <a href="dosha-assessment.html" class="btn btn-primary">Get My Diet Plan</a>
+                    <a href="doctor-login.html" class="btn btn-secondary">Doctor Login</a>
+                    <a href="recipes.html" class="btn btn-outline">Explore Recipes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower-left affirmation with featured image -->
+        <aside class="affirmation">
+            <img src="public/mung-bean-soup.png" alt="Ayurveda herbal bowl" class="affirmation-image">
+            <div class="affirmation-content">
+                <h3 class="site-name">Prakritix</h3>
+                <p id="daily-affirmation-text">I honor my natural rhythm. Balance guides my choices.</p>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Holistic Wellness Solutions</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Personalized Plans</h3>
+                    <p>Customized diet and lifestyle recommendations based on your unique Ayurvedic constitution.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Dosha Analysis</h3>
+                    <p>Comprehensive assessment to determine your Vata, Pitta, and Kapha balance for optimal health.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Ayurvedic Recipes</h3>
+                    <p>Delicious, healing recipes tailored to your dosha with detailed nutritional benefits.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Doctor Integration</h3>
+                    <p>Connect with certified Ayurvedic practitioners for professional guidance and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Community Says</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-container">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"The personalized diet plan completely transformed my energy levels. I finally understand my body's needs through Ayurveda."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span>Wellness Enthusiast</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"As a doctor, I appreciate the scientific approach to traditional Ayurvedic principles. Excellent resource for my patients."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Dr. Raj Patel</h4>
+                                    <span>Ayurvedic Practitioner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"The recipes are not only healthy but incredibly delicious. My whole family has embraced this lifestyle change."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Maria Rodriguez</h4>
+                                    <span>Home Chef</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="nav-dot active" data-slide="0"></button>
+                    <button class="nav-dot" data-slide="1"></button>
+                    <button class="nav-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Begin Your Ayurvedic Journey Today</h2>
+                <p>Discover your dosha and unlock the secrets to balanced living with our comprehensive assessment.</p>
+                <a href="dosha-assessment.html" class="btn btn-primary btn-large">Start Dosha Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="prakriti.jpg" alt="Prakritix logo" class="footer-logo">
+                        <h3>Prakritix</h3>
+                    </div>
+                    <p>Bridging ancient wisdom with modern wellness for a balanced, healthy life.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="dosha-assessment.html">Dosha Assessment</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="diet-plan.html">Diet Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>For Practitioners</h4>
+                    <ul>
+                        <li><a href="doctor-login.html">Doctor Login</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-tagline">Taste meets ayurveda</p>
+                <p class="footer-credits">Site by: Akshita Jain, Anishka Jain, Anjali Ahuja, Avika Gupta, Ashwani Jain, Harshvardhan Raghaw</p>
+                <p>&copy; 2025 Prakritix.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>

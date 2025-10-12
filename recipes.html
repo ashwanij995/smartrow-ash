@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Recipes - Prakritix</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/recipes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Prakritix</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dosha-assessment.html">Dosha Test</a></li>
+                <li><a href="recipes.html" class="active">Recipes</a></li>
+                <li><a href="diet-plan.html">Diet Plans</a></li>
+                <li><a href="doctor-login.html" class="doctor-login-btn">Doctor Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recipe Explorer -->
+    <div class="recipe-container">
+        <!-- Hero Section -->
+        <section class="recipe-hero">
+            <div class="container">
+                <h1>Ayurvedic Recipe Collection</h1>
+                <p>Discover healing recipes tailored to your dosha and dietary preferences. Each recipe includes detailed Ayurvedic benefits and preparation guidance.</p>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="recipe-search" placeholder="Search recipes, ingredients, or benefits...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <!-- Dosha Filters -->
+                    <div class="filter-group">
+                        <h3>Dosha Type</h3>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="all" data-type="dosha">
+                                <i class="fas fa-globe"></i>
+                                All Doshas
+                            </button>
+                            <button class="filter-btn" data-filter="vata" data-type="dosha">
+                                <i class="fas fa-wind"></i>
+                                Vata
+                            </button>
+                            <button class="filter-btn" data-filter="pitta" data-type="dosha">
+                                <i class="fas fa-fire"></i>
+                                Pitta
+                            </button>
+                            <button class="filter-btn" data-filter="kapha" data-type="dosha">
+                                <i class="fas fa-mountain"></i>
+                                Kapha
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Meal Type Filters -->
+                    <div class="filter-group">
+                        <h3>Meal Type</h3>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-filter="all" data-type="meal">
+                                All Meals
+                            </button>
+                            <button class="filter-btn" data-filter="breakfast" data-type="meal">
+                                <i class="fas fa-sun"></i>
+                                Breakfast
+                            </button>
+                            <button class="filter-btn" data-filter="lunch" data-type="meal">
+                                <i class="fas fa-utensils"></i>
+                                Lunch
+                            </button>
+                            <button class="filter-btn" data-filter="dinner" data-type="meal">
+                                <i class="fas fa-moon"></i>
+                                Dinner
+                            </button>
+                            <button class="filter-btn" data-filter="snack" data-type="meal">
+                                <i class="fas fa-cookie"></i>
+                                Snacks
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dietary Filters -->
+                    <div class="filter-group">
+                        <h3>Dietary</h3>
+                        <div class="filter-options">
+                            <button class="filter-btn" data-filter="vegetarian" data-type="dietary">
+                                <i class="fas fa-leaf"></i>
+                                Vegetarian
+                            </button>
+                            <button class="filter-btn" data-filter="vegan" data-type="dietary">
+                                <i class="fas fa-seedling"></i>
+                                Vegan
+                            </button>
+                            <button class="filter-btn" data-filter="gluten-free" data-type="dietary">
+                                <i class="fas fa-wheat"></i>
+                                Gluten-Free
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Preparation Time -->
+                    <div class="filter-group">
+                        <h3>Prep Time</h3>
+                        <div class="filter-options">
+                            <button class="filter-btn" data-filter="quick" data-type="time">
+                                <i class="fas fa-clock"></i>
+                                Under 30 min
+                            </button>
+                            <button class="filter-btn" data-filter="medium" data-type="time">
+                                <i class="fas fa-hourglass-half"></i>
+                                30-60 min
+                            </button>
+                            <button class="filter-btn" data-filter="long" data-type="time">
+                                <i class="fas fa-hourglass"></i>
+                                Over 60 min
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Filters Display -->
+                <div class="active-filters" id="active-filters">
+                    <!-- Active filters will be displayed here -->
+                </div>
+
+                <!-- Results Count -->
+                <div class="results-info">
+                    <span id="results-count">24 recipes found</span>
+                    <div class="sort-options">
+                        <label for="sort-select">Sort by:</label>
+                        <select id="sort-select">
+                            <option value="name">Name</option>
+                            <option value="prep-time">Prep Time</option>
+                            <option value="difficulty">Difficulty</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recipes Grid -->
+        <section class="recipes-section">
+            <div class="container">
+                <div class="recipes-grid" id="recipes-grid">
+                    <!-- Recipe cards will be populated by JavaScript -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="btn btn-outline btn-large" id="load-more-btn">
+                        <i class="fas fa-plus"></i>
+                        Load More Recipes
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Recipe Detail Modal -->
+    <div class="modal" id="recipe-modal">
+        <div class="modal-content recipe-modal-content">
+            <div class="modal-header">
+                <h2 id="modal-recipe-title">Recipe Title</h2>
+                <button class="close-btn" onclick="closeRecipeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="recipe-detail-content" id="recipe-detail-content">
+                    <!-- Recipe details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add to Plan Modal -->
+    <div class="modal" id="add-to-plan-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add to Diet Plan</h3>
+                <button class="close-btn" onclick="closeAddToPlanModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Add <span id="plan-recipe-name"></span> to your diet plan:</p>
+                <div class="plan-options">
+                    <div class="plan-option">
+                        <h4>Select Day</h4>
+                        <select id="plan-day">
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                            <option value="saturday">Saturday</option>
+                            <option value="sunday">Sunday</option>
+                        </select>
+                    </div>
+                    <div class="plan-option">
+                        <h4>Select Meal</h4>
+                        <select id="plan-meal">
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="confirmAddToPlan()">Add to Plan</button>
+                    <button class="btn btn-outline" onclick="closeAddToPlanModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/recipes.js"></script>
+</body>
+</html>

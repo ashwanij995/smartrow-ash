@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dosha Assessment - Prakritix</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dosha-assessment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Prakritix</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dosha-assessment.html" class="active">Dosha Test</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="diet-plan.html">Diet Plans</a></li>
+                <li><a href="doctor-login.html" class="doctor-login-btn">Doctor Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Assessment Container -->
+    <div class="assessment-container">
+        <!-- Introduction Section -->
+        <section class="assessment-intro" id="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h1>Discover Your Ayurvedic Constitution</h1>
+                    <p>Understanding your dosha is the first step toward optimal health and wellness. This comprehensive assessment will help identify your unique mind-body type and provide personalized recommendations.</p>
+                    
+                    <div class="dosha-preview">
+                        <div class="dosha-card">
+                            <div class="dosha-icon vata-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3>Vata</h3>
+                            <p>Air & Space</p>
+                        </div>
+                        <div class="dosha-card">
+                            <div class="dosha-icon pitta-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>Pitta</h3>
+                            <p>Fire & Water</p>
+                        </div>
+                        <div class="dosha-card">
+                            <div class="dosha-icon kapha-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>Kapha</h3>
+                            <p>Earth & Water</p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" onclick="startAssessment()">
+                        <i class="fas fa-play"></i>
+                        Start Assessment
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-section" id="quiz-section" style="display: none;">
+            <div class="container">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-question">1</span> of <span id="total-questions">20</span>
+                    </div>
+                </div>
+
+                <!-- Question Card -->
+                <div class="question-card" id="question-card">
+                    <div class="question-header">
+                        <h2 id="question-text">Loading question...</h2>
+                    </div>
+                    <div class="question-options" id="question-options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                    <div class="question-navigation">
+                        <button class="btn btn-outline" id="prev-btn" onclick="previousQuestion()" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" disabled>
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="results-section" style="display: none;">
+            <div class="container">
+                <div class="results-header">
+                    <h1>Your Ayurvedic Constitution</h1>
+                    <p>Based on your responses, here's your personalized dosha analysis:</p>
+                </div>
+
+                <div class="results-chart">
+                    <div class="dosha-result" id="vata-result">
+                        <div class="dosha-info">
+                            <div class="dosha-icon vata-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h3>Vata</h3>
+                            <p>Air & Space</p>
+                        </div>
+                        <div class="dosha-bar">
+                            <div class="dosha-fill vata-fill" id="vata-fill"></div>
+                        </div>
+                        <div class="dosha-percentage" id="vata-percentage">0%</div>
+                    </div>
+
+                    <div class="dosha-result" id="pitta-result">
+                        <div class="dosha-info">
+                            <div class="dosha-icon pitta-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>Pitta</h3>
+                            <p>Fire & Water</p>
+                        </div>
+                        <div class="dosha-bar">
+                            <div class="dosha-fill pitta-fill" id="pitta-fill"></div>
+                        </div>
+                        <div class="dosha-percentage" id="pitta-percentage">0%</div>
+                    </div>
+
+                    <div class="dosha-result" id="kapha-result">
+                        <div class="dosha-info">
+                            <div class="dosha-icon kapha-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3>Kapha</h3>
+                            <p>Earth & Water</p>
+                        </div>
+                        <div class="dosha-bar">
+                            <div class="dosha-fill kapha-fill" id="kapha-fill"></div>
+                        </div>
+                        <div class="dosha-percentage" id="kapha-percentage">0%</div>
+                    </div>
+                </div>
+
+                <div class="primary-dosha" id="primary-dosha">
+                    <!-- Primary dosha details will be populated by JavaScript -->
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn btn-primary btn-large" onclick="getDietPlan()">
+                        <i class="fas fa-utensils"></i>
+                        Get My Diet Plan
+                    </button>
+                    <button class="btn btn-outline" onclick="retakeAssessment()">
+                        <i class="fas fa-redo"></i>
+                        Retake Assessment
+                    </button>
+                    <button class="btn btn-secondary" onclick="shareResults()">
+                        <i class="fas fa-share"></i>
+                        Share Results
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/dosha-assessment.js"></script>
+</body>
+</html>

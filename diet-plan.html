@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Diet Plan - Prakritix</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/diet-plan.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Prakritix</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dosha-assessment.html">Dosha Test</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="diet-plan.html" class="active">Diet Plans</a></li>
+                <li><a href="doctor-login.html" class="doctor-login-btn">Doctor Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Diet Plan Dashboard -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="patient-info">
+                <div class="patient-avatar">
+                    <img src="patient%20avatar.jpg" alt="Patient Avatar" id="patient-avatar">
+                </div>
+                <div class="patient-details">
+                    <h3 id="patient-name">Welcome Back!</h3>
+                    <p id="patient-dosha">Primary Dosha: Loading...</p>
+                    <div class="dosha-indicator" id="dosha-indicator">
+                        <div class="dosha-icon" id="primary-dosha-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <h4>Diet Plan Options</h4>
+                <ul class="menu-list">
+                    <li class="menu-item active" data-view="weekly">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>Weekly Plan</span>
+                    </li>
+                    <li class="menu-item" data-view="daily">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Daily View</span>
+                    </li>
+                    <li class="menu-item" data-view="meal-prep">
+                        <i class="fas fa-utensils"></i>
+                        <span>Meal Prep</span>
+                    </li>
+                    <li class="menu-item" data-view="shopping">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Shopping List</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-actions">
+                <button class="btn btn-primary btn-full" onclick="generatePDF()">
+                    <i class="fas fa-file-pdf"></i>
+                    Export to PDF
+                </button>
+                <button class="btn btn-outline btn-full" onclick="shareplan()">
+                    <i class="fas fa-share"></i>
+                    Share Plan
+                </button>
+            </div>
+
+            <div class="dosha-tips">
+                <h4>Daily Tips</h4>
+                <div class="tip-card" id="daily-tip">
+                    <p>Loading personalized tip...</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="content-header">
+                <h1>Your Personalized Diet Plan</h1>
+                <div class="header-actions">
+                    <button class="btn btn-outline" onclick="customizePlan()">
+                        <i class="fas fa-cog"></i>
+                        Customize
+                    </button>
+                    <button class="btn btn-secondary" onclick="refreshPlan()">
+                        <i class="fas fa-sync"></i>
+                        Refresh Plan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Weekly View -->
+            <div class="view-container" id="weekly-view">
+                <div class="week-navigation">
+                    <button class="nav-btn" onclick="previousWeek()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 id="current-week">Week of January 15, 2024</h2>
+                    <button class="nav-btn" onclick="nextWeek()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="weekly-grid" id="weekly-grid">
+                    <!-- Weekly meal plan will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Daily View -->
+            <div class="view-container" id="daily-view" style="display: none;">
+                <div class="daily-header">
+                    <button class="nav-btn" onclick="previousDay()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <h2 id="current-day">Monday, January 15, 2024</h2>
+                    <button class="nav-btn" onclick="nextDay()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="daily-meals" id="daily-meals">
+                    <!-- Daily meals will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Meal Prep View -->
+            <div class="view-container" id="meal-prep-view" style="display: none;">
+                <h2>Weekly Meal Prep Guide</h2>
+                <div class="prep-sections">
+                    <div class="prep-section">
+                        <h3>Sunday Prep (2-3 hours)</h3>
+                        <div class="prep-tasks" id="sunday-prep">
+                            <!-- Prep tasks will be populated -->
+                        </div>
+                    </div>
+                    <div class="prep-section">
+                        <h3>Wednesday Prep (1 hour)</h3>
+                        <div class="prep-tasks" id="wednesday-prep">
+                            <!-- Prep tasks will be populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping List View -->
+            <div class="view-container" id="shopping-view" style="display: none;">
+                <h2>Weekly Shopping List</h2>
+                <div class="shopping-categories" id="shopping-list">
+                    <!-- Shopping list will be populated -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Meal Swap Modal -->
+    <div class="modal" id="meal-swap-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Swap Meal</h3>
+                <button class="close-btn" onclick="closeMealSwapModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Choose an alternative meal for <span id="swap-meal-name"></span>:</p>
+                <div class="swap-options" id="swap-options">
+                    <!-- Swap options will be populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customization Modal -->
+    <div class="modal" id="customization-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Customize Your Plan</h3>
+                <button class="close-btn" onclick="closeCustomizationModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="customization-options">
+                    <div class="option-group">
+                        <h4>Dietary Preferences</h4>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="vegetarian" checked>
+                            <span>Vegetarian</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="vegan">
+                            <span>Vegan</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="gluten-free">
+                            <span>Gluten-Free</span>
+                        </label>
+                    </div>
+                    <div class="option-group">
+                        <h4>Meal Timing</h4>
+                        <label>
+                            Breakfast Time:
+                            <input type="time" id="breakfast-time" value="07:00">
+                        </label>
+                        <label>
+                            Lunch Time:
+                            <input type="time" id="lunch-time" value="12:00">
+                        </label>
+                        <label>
+                            Dinner Time:
+                            <input type="time" id="dinner-time" value="19:00">
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="saveCustomization()">Save Changes</button>
+                    <button class="btn btn-outline" onclick="closeCustomizationModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/diet-plan.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - Prakritix</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/doctor-dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Prakritix</h2>
+            </div>
+            <div class="nav-user">
+                <div class="user-info">
+                    <span>Dr. Sarah Patel</span>
+                    <div class="user-dropdown">
+                        <button class="dropdown-btn">
+                            <img src="/placeholder.svg?height=40&width=40" alt="Doctor Avatar" class="user-avatar">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="#"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Doctor Dashboard</h3>
+                <p>Manage your patients and consultations</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-view="overview">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Overview</span>
+                    </li>
+                    <li class="nav-item" data-view="patients">
+                        <i class="fas fa-users"></i>
+                        <span>Patients</span>
+                    </li>
+                    <li class="nav-item" data-view="consultations">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Consultations</span>
+                    </li>
+                    <li class="nav-item" data-view="diet-plans">
+                        <i class="fas fa-utensils"></i>
+                        <span>Diet Plans</span>
+                    </li>
+                    <li class="nav-item" data-view="resources">
+                        <i class="fas fa-book"></i>
+                        <span>Resources</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="quick-stats">
+                    <h4>Today's Stats</h4>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span>12 Patients</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>8 Consultations</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <div class="view-section" id="overview-view">
+                <div class="section-header">
+                    <h1>Dashboard Overview</h1>
+                    <div class="header-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-download"></i>
+                            Export Report
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            New Consultation
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>156</h3>
+                            <p>Total Patients</p>
+                            <span class="stat-change positive">+12 this month</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>89</h3>
+                            <p>Consultations</p>
+                            <span class="stat-change positive">+5 this week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>234</h3>
+                            <p>Diet Plans</p>
+                            <span class="stat-change positive">+18 active</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>4.9</h3>
+                            <p>Avg Rating</p>
+                            <span class="stat-change positive">+0.2 this month</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Recent Patients</h3>
+                        <div class="patient-list">
+                            <div class="patient-item">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Patient" class="patient-avatar">
+                                <div class="patient-info">
+                                    <h4>John Smith</h4>
+                                    <p>Vata Constitution • Last visit: 2 days ago</p>
+                                </div>
+                                <button class="btn btn-small btn-outline">View</button>
+                            </div>
+                            <div class="patient-item">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Patient" class="patient-avatar">
+                                <div class="patient-info">
+                                    <h4>Maria Garcia</h4>
+                                    <p>Pitta Constitution • Last visit: 1 week ago</p>
+                                </div>
+                                <button class="btn btn-small btn-outline">View</button>
+                            </div>
+                            <div class="patient-item">
+                                <img src="/placeholder.svg?height=40&width=40" alt="Patient" class="patient-avatar">
+                                <div class="patient-info">
+                                    <h4>David Chen</h4>
+                                    <p>Kapha Constitution • Last visit: 3 days ago</p>
+                                </div>
+                                <button class="btn btn-small btn-outline">View</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Upcoming Consultations</h3>
+                        <div class="consultation-list">
+                            <div class="consultation-item">
+                                <div class="consultation-time">
+                                    <span class="time">10:00 AM</span>
+                                    <span class="date">Today</span>
+                                </div>
+                                <div class="consultation-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Follow-up consultation</p>
+                                </div>
+                                <button class="btn btn-small btn-primary">Join</button>
+                            </div>
+                            <div class="consultation-item">
+                                <div class="consultation-time">
+                                    <span class="time">2:30 PM</span>
+                                    <span class="date">Today</span>
+                                </div>
+                                <div class="consultation-info">
+                                    <h4>Michael Brown</h4>
+                                    <p>Initial assessment</p>
+                                </div>
+                                <button class="btn btn-small btn-primary">Join</button>
+                            </div>
+                            <div class="consultation-item">
+                                <div class="consultation-time">
+                                    <span class="time">9:00 AM</span>
+                                    <span class="date">Tomorrow</span>
+                                </div>
+                                <div class="consultation-info">
+                                    <h4>Lisa Wang</h4>
+                                    <p>Diet plan review</p>
+                                </div>
+                                <button class="btn btn-small btn-outline">Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patients Section -->
+            <div class="view-section" id="patients-view" style="display: none;">
+                <div class="section-header">
+                    <h1>Patient Management</h1>
+                    <div class="header-actions">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search patients..." id="patient-search">
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Add Patient
+                        </button>
+                    </div>
+                </div>
+
+                <div class="patients-table-container">
+                    <table class="patients-table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Constitution</th>
+                                <th>Last Visit</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="patients-table-body">
+                            <!-- Patient rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Diet Plans Section -->
+            <div class="view-section" id="diet-plans-view" style="display: none;">
+                <div class="section-header">
+                    <h1>Diet Plan Management</h1>
+                    <div class="header-actions">
+                        <select class="filter-select">
+                            <option value="all">All Doshas</option>
+                            <option value="vata">Vata</option>
+                            <option value="pitta">Pitta</option>
+                            <option value="kapha">Kapha</option>
+                        </select>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Create Plan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="diet-plans-grid" id="diet-plans-grid">
+                    <!-- Diet plan cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Patient Detail Modal -->
+    <div class="modal" id="patient-modal">
+        <div class="modal-content patient-modal-content">
+            <div class="modal-header">
+                <h2 id="patient-modal-title">Patient Details</h2>
+                <button class="close-btn" onclick="closePatientModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="patient-detail-content" id="patient-detail-content">
+                    <!-- Patient details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diet Plan Editor Modal -->
+    <div class="modal" id="diet-plan-modal">
+        <div class="modal-content diet-plan-modal-content">
+            <div class="modal-header">
+                <h2>Edit Diet Plan</h2>
+                <button class="close-btn" onclick="closeDietPlanModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="diet-plan-editor" id="diet-plan-editor">
+                    <!-- Diet plan editor will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/doctor-dashboard.js"></script>
+</body>
+</html>
